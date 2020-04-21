@@ -1,0 +1,3073 @@
+{
+  "$schema" : "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "CodeQL command-line toolchain",
+        "organization" : "GitHub",
+        "semanticVersion" : "2.1.0",
+        "rules" : [ {
+          "id" : "js/duplicate-html-id",
+          "name" : "js/duplicate-html-id",
+          "shortDescription" : {
+            "text" : "Ambiguous HTML id attribute"
+          },
+          "fullDescription" : {
+            "text" : "If an HTML document contains two elements with the same id attribute, it may be interpreted differently by different browsers."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Ambiguous HTML id attribute",
+            "description" : "If an HTML document contains two elements with the\n              same id attribute, it may be interpreted differently\n              by different browsers.",
+            "id" : "js/duplicate-html-id",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/malformed-html-id",
+          "name" : "js/malformed-html-id",
+          "shortDescription" : {
+            "text" : "Malformed id attribute"
+          },
+          "fullDescription" : {
+            "text" : "If the id of an HTML attribute is malformed, its interpretation may be browser-dependent."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "external/cwe/cwe-758" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Malformed id attribute",
+            "description" : "If the id of an HTML attribute is malformed, its\n              interpretation may be browser-dependent.",
+            "id" : "js/malformed-html-id",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/duplicate-html-attribute",
+          "name" : "js/duplicate-html-attribute",
+          "shortDescription" : {
+            "text" : "Duplicate HTML element attributes"
+          },
+          "fullDescription" : {
+            "text" : "Specifying the same attribute twice on the same HTML element is redundant and may indicate a copy-paste mistake."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "readability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate HTML element attributes",
+            "description" : "Specifying the same attribute twice on the same HTML element is\n              redundant and may indicate a copy-paste mistake.",
+            "id" : "js/duplicate-html-attribute",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/eval-like-call",
+          "name" : "js/eval-like-call",
+          "shortDescription" : {
+            "text" : "Call to eval-like DOM function"
+          },
+          "fullDescription" : {
+            "text" : "DOM functions that act like 'eval' and execute strings as code are dangerous and impede program analysis and understanding. Consequently, they should not be used."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "external/cwe/cwe-676" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Call to eval-like DOM function",
+            "description" : "DOM functions that act like 'eval' and execute strings as code are dangerous and impede\n              program analysis and understanding. Consequently, they should not be used.",
+            "id" : "js/eval-like-call",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/unsafe-external-link",
+          "name" : "js/unsafe-external-link",
+          "shortDescription" : {
+            "text" : "Potentially unsafe external link"
+          },
+          "fullDescription" : {
+            "text" : "External links that open in a new tab or window but do not specify link type 'noopener' or 'noreferrer' are a potential security risk."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "security", "external/cwe/cwe-200", "external/cwe/cwe-1022" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Potentially unsafe external link",
+            "description" : "External links that open in a new tab or window but do not specify\n              link type 'noopener' or 'noreferrer' are a potential security risk.",
+            "id" : "js/unsafe-external-link",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/type-confusion-through-parameter-tampering",
+          "name" : "js/type-confusion-through-parameter-tampering",
+          "shortDescription" : {
+            "text" : "Type confusion through parameter tampering"
+          },
+          "fullDescription" : {
+            "text" : "Sanitizing an HTTP request parameter may be ineffective if the user controls its type."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-843" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Type confusion through parameter tampering",
+            "description" : "Sanitizing an HTTP request parameter may be ineffective if the user controls its type.",
+            "id" : "js/type-confusion-through-parameter-tampering",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/incomplete-hostname-regexp",
+          "name" : "js/incomplete-hostname-regexp",
+          "shortDescription" : {
+            "text" : "Incomplete regular expression for hostnames"
+          },
+          "fullDescription" : {
+            "text" : "Matching a URL or hostname against a regular expression that contains an unescaped dot as part of the hostname might match more hostnames than expected."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-20" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Incomplete regular expression for hostnames",
+            "description" : "Matching a URL or hostname against a regular expression that contains an unescaped dot as part of the hostname might match more hostnames than expected.",
+            "id" : "js/incomplete-hostname-regexp",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/useless-regexp-character-escape",
+          "name" : "js/useless-regexp-character-escape",
+          "shortDescription" : {
+            "text" : "Useless regular-expression character escape"
+          },
+          "fullDescription" : {
+            "text" : "Prepending a backslash to an ordinary character in a string does not have any effect, and may make regular expressions constructed from this string behave unexpectedly."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-20" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Useless regular-expression character escape",
+            "description" : "Prepending a backslash to an ordinary character in a string\n              does not have any effect, and may make regular expressions constructed from this string\n              behave unexpectedly.",
+            "id" : "js/useless-regexp-character-escape",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/incorrect-suffix-check",
+          "name" : "js/incorrect-suffix-check",
+          "shortDescription" : {
+            "text" : "Incorrect suffix check"
+          },
+          "fullDescription" : {
+            "text" : "Using indexOf to implement endsWith functionality is error-prone if the -1 case is not explicitly handled."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "correctness", "external/cwe/cwe-020" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Incorrect suffix check",
+            "description" : "Using indexOf to implement endsWith functionality is error-prone if the -1 case is not explicitly handled.",
+            "id" : "js/incorrect-suffix-check",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/incomplete-url-scheme-check",
+          "name" : "js/incomplete-url-scheme-check",
+          "shortDescription" : {
+            "text" : "Incomplete URL scheme check"
+          },
+          "fullDescription" : {
+            "text" : "Checking for the \"javascript:\" URL scheme without also checking for \"vbscript:\" and \"data:\" suggests a logic error or even a security vulnerability."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "correctness", "external/cwe/cwe-020" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Incomplete URL scheme check",
+            "description" : "Checking for the \"javascript:\" URL scheme without also checking for \"vbscript:\"\n              and \"data:\" suggests a logic error or even a security vulnerability.",
+            "id" : "js/incomplete-url-scheme-check",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/incomplete-url-substring-sanitization",
+          "name" : "js/incomplete-url-substring-sanitization",
+          "shortDescription" : {
+            "text" : "Incomplete URL substring sanitization"
+          },
+          "fullDescription" : {
+            "text" : "Security checks on the substrings of an unparsed URL are often vulnerable to bypassing."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-20" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Incomplete URL substring sanitization",
+            "description" : "Security checks on the substrings of an unparsed URL are often vulnerable to bypassing.",
+            "id" : "js/incomplete-url-substring-sanitization",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/prototype-pollution",
+          "name" : "js/prototype-pollution",
+          "shortDescription" : {
+            "text" : "Prototype pollution"
+          },
+          "fullDescription" : {
+            "text" : "Recursively merging a user-controlled object into another object can allow an attacker to modify the built-in Object prototype."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-250", "external/cwe/cwe-400" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Prototype pollution",
+            "description" : "Recursively merging a user-controlled object into another object\n              can allow an attacker to modify the built-in Object prototype.",
+            "id" : "js/prototype-pollution",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/prototype-pollution-utility",
+          "name" : "js/prototype-pollution-utility",
+          "shortDescription" : {
+            "text" : "Prototype pollution in utility function"
+          },
+          "fullDescription" : {
+            "text" : "Recursively assigning properties on objects may cause accidental modification of a built-in prototype object."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-400", "external/cwe/cwe-471" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Prototype pollution in utility function",
+            "description" : "Recursively assigning properties on objects may cause\n              accidental modification of a built-in prototype object.",
+            "id" : "js/prototype-pollution-utility",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/host-header-forgery-in-email-generation",
+          "name" : "js/host-header-forgery-in-email-generation",
+          "shortDescription" : {
+            "text" : "Host header poisoning in email generation"
+          },
+          "fullDescription" : {
+            "text" : "Using the HTTP Host header to construct a link in an email can facilitate phishing attacks and leak password reset tokens."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-640" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Host header poisoning in email generation",
+            "description" : "Using the HTTP Host header to construct a link in an email can facilitate phishing\n              attacks and leak password reset tokens.",
+            "id" : "js/host-header-forgery-in-email-generation",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/unnecessary-use-of-cat",
+          "name" : "js/unnecessary-use-of-cat",
+          "shortDescription" : {
+            "text" : "Unnecessary use of `cat` process"
+          },
+          "fullDescription" : {
+            "text" : "Using the `cat` process to read a file is unnecessarily complex, inefficient, unportable, and can lead to subtle bugs, or even security vulnerabilities."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "maintainability" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unnecessary use of `cat` process",
+            "description" : "Using the  `cat` process to read a file is unnecessarily complex, inefficient, unportable, and can lead to subtle bugs, or even security vulnerabilities.",
+            "id" : "js/unnecessary-use-of-cat",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/shell-command-injection-from-environment",
+          "name" : "js/shell-command-injection-from-environment",
+          "shortDescription" : {
+            "text" : "Shell command built from environment values"
+          },
+          "fullDescription" : {
+            "text" : "Building a shell command string with values from the enclosing environment may cause subtle bugs or vulnerabilities."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-078", "external/cwe/cwe-088" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Shell command built from environment values",
+            "description" : "Building a shell command string with values from the enclosing\n              environment may cause subtle bugs or vulnerabilities.",
+            "id" : "js/shell-command-injection-from-environment",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/command-line-injection",
+          "name" : "js/command-line-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled command line"
+          },
+          "fullDescription" : {
+            "text" : "Using externally controlled strings in a command line may allow a malicious user to change the meaning of the command."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-078", "external/cwe/cwe-088" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Uncontrolled command line",
+            "description" : "Using externally controlled strings in a command line may allow a malicious\n              user to change the meaning of the command.",
+            "id" : "js/command-line-injection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/hardcoded-credentials",
+          "name" : "js/hardcoded-credentials",
+          "shortDescription" : {
+            "text" : "Hard-coded credentials"
+          },
+          "fullDescription" : {
+            "text" : "Hard-coding credentials in source code may enable an attacker to gain unauthorized access."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-259", "external/cwe/cwe-321", "external/cwe/cwe-798" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Hard-coded credentials",
+            "description" : "Hard-coding credentials in source code may enable an attacker\n              to gain unauthorized access.",
+            "id" : "js/hardcoded-credentials",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/weak-cryptographic-algorithm",
+          "name" : "js/weak-cryptographic-algorithm",
+          "shortDescription" : {
+            "text" : "Use of a broken or weak cryptographic algorithm"
+          },
+          "fullDescription" : {
+            "text" : "Using broken or weak cryptographic algorithms can compromise security."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-327" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Use of a broken or weak cryptographic algorithm",
+            "description" : "Using broken or weak cryptographic algorithms can compromise security.",
+            "id" : "js/weak-cryptographic-algorithm",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/missing-token-validation",
+          "name" : "js/missing-token-validation",
+          "shortDescription" : {
+            "text" : "Missing CSRF middleware"
+          },
+          "fullDescription" : {
+            "text" : "Using cookies without CSRF protection may allow malicious websites to submit requests on behalf of the user."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-352" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing CSRF middleware",
+            "description" : "Using cookies without CSRF protection may allow malicious websites to\n              submit requests on behalf of the user.",
+            "id" : "js/missing-token-validation",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/xml-bomb",
+          "name" : "js/xml-bomb",
+          "shortDescription" : {
+            "text" : "XML internal entity expansion"
+          },
+          "fullDescription" : {
+            "text" : "Parsing user input as an XML document with arbitrary internal entity expansion is vulnerable to denial-of-service attacks."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-776", "external/cwe/cwe-400" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "XML internal entity expansion",
+            "description" : "Parsing user input as an XML document with arbitrary internal\n              entity expansion is vulnerable to denial-of-service attacks.",
+            "id" : "js/xml-bomb",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/missing-rate-limiting",
+          "name" : "js/missing-rate-limiting",
+          "shortDescription" : {
+            "text" : "Missing rate limiting"
+          },
+          "fullDescription" : {
+            "text" : "An HTTP request handler that performs expensive operations without restricting the rate at which operations can be carried out is vulnerable to denial-of-service attacks."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-770", "external/cwe/cwe-307", "external/cwe/cwe-400" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing rate limiting",
+            "description" : "An HTTP request handler that performs expensive operations without\n              restricting the rate at which operations can be carried out is vulnerable\n              to denial-of-service attacks.",
+            "id" : "js/missing-rate-limiting",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/client-side-unvalidated-url-redirection",
+          "name" : "js/client-side-unvalidated-url-redirection",
+          "shortDescription" : {
+            "text" : "Client-side URL redirect"
+          },
+          "fullDescription" : {
+            "text" : "Client-side URL redirection based on unvalidated user input may cause redirection to malicious web sites."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116", "external/cwe/cwe-601" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Client-side URL redirect",
+            "description" : "Client-side URL redirection based on unvalidated user input\n              may cause redirection to malicious web sites.",
+            "id" : "js/client-side-unvalidated-url-redirection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/server-side-unvalidated-url-redirection",
+          "name" : "js/server-side-unvalidated-url-redirection",
+          "shortDescription" : {
+            "text" : "Server-side URL redirect"
+          },
+          "fullDescription" : {
+            "text" : "Server-side URL redirection based on unvalidated user input may cause redirection to malicious web sites."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-601" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Server-side URL redirect",
+            "description" : "Server-side URL redirection based on unvalidated user input\n              may cause redirection to malicious web sites.",
+            "id" : "js/server-side-unvalidated-url-redirection",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/incomplete-sanitization",
+          "name" : "js/incomplete-sanitization",
+          "shortDescription" : {
+            "text" : "Incomplete string escaping or encoding"
+          },
+          "fullDescription" : {
+            "text" : "A string transformer that does not replace or escape all occurrences of a meta-character may be ineffective."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-116", "external/cwe/cwe-20" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Incomplete string escaping or encoding",
+            "description" : "A string transformer that does not replace or escape all occurrences of a\n              meta-character may be ineffective.",
+            "id" : "js/incomplete-sanitization",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/double-escaping",
+          "name" : "js/double-escaping",
+          "shortDescription" : {
+            "text" : "Double escaping or unescaping"
+          },
+          "fullDescription" : {
+            "text" : "When escaping special characters using a meta-character like backslash or ampersand, the meta-character has to be escaped first to avoid double-escaping, and conversely it has to be unescaped last to avoid double-unescaping."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-116", "external/cwe/cwe-20" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Double escaping or unescaping",
+            "description" : "When escaping special characters using a meta-character like backslash or\n              ampersand, the meta-character has to be escaped first to avoid double-escaping,\n              and conversely it has to be unescaped last to avoid double-unescaping.",
+            "id" : "js/double-escaping",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unvalidated-dynamic-method-call",
+          "name" : "js/unvalidated-dynamic-method-call",
+          "shortDescription" : {
+            "text" : "Unvalidated dynamic method call"
+          },
+          "fullDescription" : {
+            "text" : "Calling a method with a user-controlled name may dispatch to an unexpected target, which could cause an exception."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-754" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Unvalidated dynamic method call",
+            "description" : "Calling a method with a user-controlled name may dispatch to\n              an unexpected target, which could cause an exception.",
+            "id" : "js/unvalidated-dynamic-method-call",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/cors-misconfiguration-for-credentials",
+          "name" : "js/cors-misconfiguration-for-credentials",
+          "shortDescription" : {
+            "text" : "CORS misconfiguration for credentials transfer"
+          },
+          "fullDescription" : {
+            "text" : "Misconfiguration of CORS HTTP headers allows for leaks of secret credentials."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-346", "external/cwe/cwe-639" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "CORS misconfiguration for credentials transfer",
+            "description" : "Misconfiguration of CORS HTTP headers allows for leaks of secret credentials.",
+            "id" : "js/cors-misconfiguration-for-credentials",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/stack-trace-exposure",
+          "name" : "js/stack-trace-exposure",
+          "shortDescription" : {
+            "text" : "Information exposure through a stack trace"
+          },
+          "fullDescription" : {
+            "text" : "Propagating stack trace information to an external user can unintentionally reveal implementation details that are useful to an attacker for developing a subsequent exploit."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-209" ],
+            "kind" : "path-problem",
+            "precision" : "very-high",
+            "name" : "Information exposure through a stack trace",
+            "description" : "Propagating stack trace information to an external user can\n              unintentionally reveal implementation details that are useful\n              to an attacker for developing a subsequent exploit.",
+            "id" : "js/stack-trace-exposure",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/sql-injection",
+          "name" : "js/sql-injection",
+          "shortDescription" : {
+            "text" : "Database query built from user-controlled sources"
+          },
+          "fullDescription" : {
+            "text" : "Building a database query from user-controlled sources is vulnerable to insertion of malicious code by the user."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-089" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Database query built from user-controlled sources",
+            "description" : "Building a database query from user-controlled sources is vulnerable to insertion of\n              malicious code by the user.",
+            "id" : "js/sql-injection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/path-injection",
+          "name" : "js/path-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled data used in path expression"
+          },
+          "fullDescription" : {
+            "text" : "Accessing paths influenced by users can allow an attacker to access unexpected resources."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-022", "external/cwe/cwe-023", "external/cwe/cwe-036", "external/cwe/cwe-073", "external/cwe/cwe-099" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Uncontrolled data used in path expression",
+            "description" : "Accessing paths influenced by users can allow an attacker to access\n              unexpected resources.",
+            "id" : "js/path-injection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/zipslip",
+          "name" : "js/zipslip",
+          "shortDescription" : {
+            "text" : "Arbitrary file write during zip extraction (\"Zip Slip\")"
+          },
+          "fullDescription" : {
+            "text" : "Extracting files from a malicious zip archive without validating that the destination file path is within the destination directory can cause files outside the destination directory to be overwritten."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-022" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Arbitrary file write during zip extraction (\"Zip Slip\")",
+            "description" : "Extracting files from a malicious zip archive without validating that the\n              destination file path is within the destination directory can cause files outside\n              the destination directory to be overwritten.",
+            "id" : "js/zipslip",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/reflected-xss",
+          "name" : "js/reflected-xss",
+          "shortDescription" : {
+            "text" : "Reflected cross-site scripting"
+          },
+          "fullDescription" : {
+            "text" : "Writing user input directly to an HTTP response allows for a cross-site scripting vulnerability."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Reflected cross-site scripting",
+            "description" : "Writing user input directly to an HTTP response allows for\n              a cross-site scripting vulnerability.",
+            "id" : "js/reflected-xss",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/unsafe-jquery-plugin",
+          "name" : "js/unsafe-jquery-plugin",
+          "shortDescription" : {
+            "text" : "Unsafe jQuery plugin"
+          },
+          "fullDescription" : {
+            "text" : "A jQuery plugin that unintentionally constructs HTML from some of its options may be unsafe to use for clients."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116", "frameworks/jquery" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Unsafe jQuery plugin",
+            "description" : "A jQuery plugin that unintentionally constructs HTML from some of its options may be unsafe to use for clients.",
+            "id" : "js/unsafe-jquery-plugin",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/stored-xss",
+          "name" : "js/stored-xss",
+          "shortDescription" : {
+            "text" : "Stored cross-site scripting"
+          },
+          "fullDescription" : {
+            "text" : "Using uncontrolled stored values in HTML allows for a stored cross-site scripting vulnerability."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Stored cross-site scripting",
+            "description" : "Using uncontrolled stored values in HTML allows for\n              a stored cross-site scripting vulnerability.",
+            "id" : "js/stored-xss",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/xss",
+          "name" : "js/xss",
+          "shortDescription" : {
+            "text" : "Client-side cross-site scripting"
+          },
+          "fullDescription" : {
+            "text" : "Writing user input directly to the DOM allows for a cross-site scripting vulnerability."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Client-side cross-site scripting",
+            "description" : "Writing user input directly to the DOM allows for\n              a cross-site scripting vulnerability.",
+            "id" : "js/xss",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/insecure-randomness",
+          "name" : "js/insecure-randomness",
+          "shortDescription" : {
+            "text" : "Insecure randomness"
+          },
+          "fullDescription" : {
+            "text" : "Using a cryptographically weak pseudo-random number generator to generate a security-sensitive value may allow an attacker to predict what value will be generated."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-338" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Insecure randomness",
+            "description" : "Using a cryptographically weak pseudo-random number generator to generate a\n              security-sensitive value may allow an attacker to predict what value will\n              be generated.",
+            "id" : "js/insecure-randomness",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/code-injection",
+          "name" : "js/code-injection",
+          "shortDescription" : {
+            "text" : "Code injection"
+          },
+          "fullDescription" : {
+            "text" : "Interpreting unsanitized user input as code allows a malicious user arbitrary code execution."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-094", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Code injection",
+            "description" : "Interpreting unsanitized user input as code allows a malicious user arbitrary\n              code execution.",
+            "id" : "js/code-injection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/unsafe-dynamic-method-access",
+          "name" : "js/unsafe-dynamic-method-access",
+          "shortDescription" : {
+            "text" : "Unsafe dynamic method access"
+          },
+          "fullDescription" : {
+            "text" : "Invoking user-controlled methods on certain objects can lead to remote code execution."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-094" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Unsafe dynamic method access",
+            "description" : "Invoking user-controlled methods on certain objects can lead to remote code execution.",
+            "id" : "js/unsafe-dynamic-method-access",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/cross-window-information-leak",
+          "name" : "js/cross-window-information-leak",
+          "shortDescription" : {
+            "text" : "Cross-window communication with unrestricted target origin"
+          },
+          "fullDescription" : {
+            "text" : "When sending sensitive information to another window using `postMessage`, the origin of the target window should be restricted to avoid unintentional information leaks."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-201", "external/cwe/cwe-359" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Cross-window communication with unrestricted target origin",
+            "description" : "When sending sensitive information to another window using `postMessage`,\n              the origin of the target window should be restricted to avoid unintentional\n              information leaks.",
+            "id" : "js/cross-window-information-leak",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/insufficient-password-hash",
+          "name" : "js/insufficient-password-hash",
+          "shortDescription" : {
+            "text" : "Use of password hash with insufficient computational effort"
+          },
+          "fullDescription" : {
+            "text" : "Creating a hash of a password with low computational effort makes the hash vulnerable to password cracking attacks."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-916" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Use of password hash with insufficient computational effort",
+            "description" : "Creating a hash of a password with low computational effort makes the hash vulnerable to password cracking attacks.",
+            "id" : "js/insufficient-password-hash",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/xxe",
+          "name" : "js/xxe",
+          "shortDescription" : {
+            "text" : "XML external entity expansion"
+          },
+          "fullDescription" : {
+            "text" : "Parsing user input as an XML document with external entity expansion is vulnerable to XXE attacks."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-611", "external/cwe/cwe-827" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "XML external entity expansion",
+            "description" : "Parsing user input as an XML document with external\n              entity expansion is vulnerable to XXE attacks.",
+            "id" : "js/xxe",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/regex-injection",
+          "name" : "js/regex-injection",
+          "shortDescription" : {
+            "text" : "Regular expression injection"
+          },
+          "fullDescription" : {
+            "text" : "User input should not be used in regular expressions without first being escaped, otherwise a malicious user may be able to inject an expression that could require exponential time on certain inputs."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-730", "external/cwe/cwe-400" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Regular expression injection",
+            "description" : "User input should not be used in regular expressions without first being escaped,\n              otherwise a malicious user may be able to inject an expression that could require\n              exponential time on certain inputs.",
+            "id" : "js/regex-injection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/xpath-injection",
+          "name" : "js/xpath-injection",
+          "shortDescription" : {
+            "text" : "XPath injection"
+          },
+          "fullDescription" : {
+            "text" : "Building an XPath expression from user-controlled sources is vulnerable to insertion of malicious code by the user."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-643" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "XPath injection",
+            "description" : "Building an XPath expression from user-controlled sources is vulnerable to insertion of\n              malicious code by the user.",
+            "id" : "js/xpath-injection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/clear-text-storage-of-sensitive-data",
+          "name" : "js/clear-text-storage-of-sensitive-data",
+          "shortDescription" : {
+            "text" : "Clear text storage of sensitive information"
+          },
+          "fullDescription" : {
+            "text" : "Sensitive information stored without encryption or hashing can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-312", "external/cwe/cwe-315", "external/cwe/cwe-359" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Clear text storage of sensitive information",
+            "description" : "Sensitive information stored without encryption or hashing can expose it to an\n              attacker.",
+            "id" : "js/clear-text-storage-of-sensitive-data",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/clear-text-logging",
+          "name" : "js/clear-text-logging",
+          "shortDescription" : {
+            "text" : "Clear-text logging of sensitive information"
+          },
+          "fullDescription" : {
+            "text" : "Logging sensitive information without encryption or hashing can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-312", "external/cwe/cwe-315", "external/cwe/cwe-359" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Clear-text logging of sensitive information",
+            "description" : "Logging sensitive information without encryption or hashing can\n              expose it to an attacker.",
+            "id" : "js/clear-text-logging",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/unsafe-deserialization",
+          "name" : "js/unsafe-deserialization",
+          "shortDescription" : {
+            "text" : "Deserialization of user-controlled data"
+          },
+          "fullDescription" : {
+            "text" : "Deserializing user-controlled data may allow attackers to execute arbitrary code."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-502" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Deserialization of user-controlled data",
+            "description" : "Deserializing user-controlled data may allow attackers to\n              execute arbitrary code.",
+            "id" : "js/unsafe-deserialization",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/loop-bound-injection",
+          "name" : "js/loop-bound-injection",
+          "shortDescription" : {
+            "text" : "Loop bound injection"
+          },
+          "fullDescription" : {
+            "text" : "Iterating over an object with a user-controlled .length property can cause indefinite looping."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-834" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Loop bound injection",
+            "description" : "Iterating over an object with a user-controlled .length\n              property can cause indefinite looping.",
+            "id" : "js/loop-bound-injection",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/tainted-format-string",
+          "name" : "js/tainted-format-string",
+          "shortDescription" : {
+            "text" : "Use of externally-controlled format string"
+          },
+          "fullDescription" : {
+            "text" : "Using external input in format strings can lead to garbled output."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-134" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Use of externally-controlled format string",
+            "description" : "Using external input in format strings can lead to garbled output.",
+            "id" : "js/tainted-format-string",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/missing-explicit-injection",
+          "name" : "js/angular/missing-explicit-injection",
+          "shortDescription" : {
+            "text" : "Missing explicit dependency injection"
+          },
+          "fullDescription" : {
+            "text" : "Functions without explicit dependency injections will not work when their parameter names are minified."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "maintainability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing explicit dependency injection",
+            "description" : "Functions without explicit dependency injections\n                will not work when their parameter names are minified.",
+            "id" : "js/angular/missing-explicit-injection",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/double-compilation",
+          "name" : "js/angular/double-compilation",
+          "shortDescription" : {
+            "text" : "Double compilation"
+          },
+          "fullDescription" : {
+            "text" : "Recompiling an already compiled part of the DOM can lead to unexpected behavior of directives, performance problems, and memory leaks."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Double compilation",
+            "description" : "Recompiling an already compiled part of the DOM can lead to\n              unexpected behavior of directives, performance problems, and memory leaks.",
+            "id" : "js/angular/double-compilation",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/duplicate-dependency",
+          "name" : "js/angular/duplicate-dependency",
+          "shortDescription" : {
+            "text" : "Duplicate dependency"
+          },
+          "fullDescription" : {
+            "text" : "Repeated dependency names are redundant for AngularJS dependency injection."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate dependency",
+            "description" : "Repeated dependency names are redundant for AngularJS dependency injection.",
+            "id" : "js/angular/duplicate-dependency",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/incompatible-service",
+          "name" : "js/angular/incompatible-service",
+          "shortDescription" : {
+            "text" : "Incompatible dependency injection"
+          },
+          "fullDescription" : {
+            "text" : "Dependency-injecting a service of the wrong kind causes an error at runtime."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Incompatible dependency injection",
+            "description" : "Dependency-injecting a service of the wrong kind causes an error at runtime.",
+            "id" : "js/angular/incompatible-service",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/angular/disabling-sce",
+          "name" : "js/angular/disabling-sce",
+          "shortDescription" : {
+            "text" : "Disabling SCE"
+          },
+          "fullDescription" : {
+            "text" : "Disabling strict contextual escaping (SCE) can cause security vulnerabilities."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "maintainability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Disabling SCE",
+            "description" : "Disabling strict contextual escaping (SCE) can cause security vulnerabilities.",
+            "id" : "js/angular/disabling-sce",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/dependency-injection-mismatch",
+          "name" : "js/angular/dependency-injection-mismatch",
+          "shortDescription" : {
+            "text" : "Dependency mismatch"
+          },
+          "fullDescription" : {
+            "text" : "If the injected dependencies of a function go out of sync with its parameters, the function will become difficult to understand and maintain."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "maintainability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Dependency mismatch",
+            "description" : "If the injected dependencies of a function go out of sync\n              with its parameters, the function will become difficult to\n              understand and maintain.",
+            "id" : "js/angular/dependency-injection-mismatch",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/expression-in-url-attribute",
+          "name" : "js/angular/expression-in-url-attribute",
+          "shortDescription" : {
+            "text" : "Use of AngularJS markup in URL-valued attribute"
+          },
+          "fullDescription" : {
+            "text" : "Using AngularJS markup in an HTML attribute that references a URL (such as 'href' or 'src') may cause the browser to send a request with an invalid URL."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Use of AngularJS markup in URL-valued attribute",
+            "description" : "Using AngularJS markup in an HTML attribute that references a URL\n              (such as 'href' or 'src') may cause the browser to send a request\n              with an invalid URL.",
+            "id" : "js/angular/expression-in-url-attribute",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/repeated-dependency-injection",
+          "name" : "js/angular/repeated-dependency-injection",
+          "shortDescription" : {
+            "text" : "Repeated dependency injection"
+          },
+          "fullDescription" : {
+            "text" : "Specifying dependency injections of an AngularJS component multiple times overrides earlier specifications."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "frameworks/angularjs" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Repeated dependency injection",
+            "description" : "Specifying dependency injections of an AngularJS component multiple times overrides earlier specifications.",
+            "id" : "js/angular/repeated-dependency-injection",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/angular/insecure-url-whitelist",
+          "name" : "js/angular/insecure-url-whitelist",
+          "shortDescription" : {
+            "text" : "Insecure URL whitelist"
+          },
+          "fullDescription" : {
+            "text" : "URL whitelists that are too permissive can cause security vulnerabilities."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "frameworks/angularjs", "external/cwe/cwe-183", "external/cwe/cwe-625" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Insecure URL whitelist",
+            "description" : "URL whitelists that are too permissive can cause security vulnerabilities.",
+            "id" : "js/angular/insecure-url-whitelist",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/vue/arrow-method-on-vue-instance",
+          "name" : "js/vue/arrow-method-on-vue-instance",
+          "shortDescription" : {
+            "text" : "Arrow method on Vue instance"
+          },
+          "fullDescription" : {
+            "text" : "An arrow method on a Vue instance doesn't have its `this` variable bound to the Vue instance."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "frameworks/vue" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Arrow method on Vue instance",
+            "description" : "An arrow method on a Vue instance doesn't have its `this` variable bound to the Vue instance.",
+            "id" : "js/vue/arrow-method-on-vue-instance",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/react/inconsistent-state-update",
+          "name" : "js/react/inconsistent-state-update",
+          "shortDescription" : {
+            "text" : "Potentially inconsistent state update"
+          },
+          "fullDescription" : {
+            "text" : "Updating the state of a component based on the current value of 'this.state' or 'this.props' may lead to inconsistent component state."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "frameworks/react" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Potentially inconsistent state update",
+            "description" : "Updating the state of a component based on the current value of\n              'this.state' or 'this.props' may lead to inconsistent component\n              state.",
+            "id" : "js/react/inconsistent-state-update",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/react/unsupported-state-update-in-lifecycle-method",
+          "name" : "js/react/unsupported-state-update-in-lifecycle-method",
+          "shortDescription" : {
+            "text" : "Unsupported state update in lifecycle method"
+          },
+          "fullDescription" : {
+            "text" : "Attempting to update the state of a React component at the wrong time can cause undesired behavior."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "frameworks/react" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unsupported state update in lifecycle method",
+            "description" : "Attempting to update the state of a React component at the wrong time can cause undesired behavior.",
+            "id" : "js/react/unsupported-state-update-in-lifecycle-method",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/react/direct-state-mutation",
+          "name" : "js/react/direct-state-mutation",
+          "shortDescription" : {
+            "text" : "Direct state mutation"
+          },
+          "fullDescription" : {
+            "text" : "Mutating the state of a React component directly may lead to lost updates."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "frameworks/react" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Direct state mutation",
+            "description" : "Mutating the state of a React component directly may lead to\n              lost updates.",
+            "id" : "js/react/direct-state-mutation",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/react/unused-or-undefined-state-property",
+          "name" : "js/react/unused-or-undefined-state-property",
+          "shortDescription" : {
+            "text" : "Unused or undefined state property"
+          },
+          "fullDescription" : {
+            "text" : "Unused or undefined component state properties may be a symptom of a bug and should be examined carefully."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "reliability", "frameworks/react" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unused or undefined state property",
+            "description" : "Unused or undefined component state properties may be a symptom of a bug and should be examined carefully.",
+            "id" : "js/react/unused-or-undefined-state-property",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/disabling-electron-websecurity",
+          "name" : "js/disabling-electron-websecurity",
+          "shortDescription" : {
+            "text" : "Disabling Electron webSecurity"
+          },
+          "fullDescription" : {
+            "text" : "Disabling webSecurity can cause critical security vulnerabilities."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "frameworks/electron" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Disabling Electron webSecurity",
+            "description" : "Disabling webSecurity can cause critical security vulnerabilities.",
+            "id" : "js/disabling-electron-websecurity",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/enabling-electron-insecure-content",
+          "name" : "js/enabling-electron-insecure-content",
+          "shortDescription" : {
+            "text" : "Enabling Electron allowRunningInsecureContent"
+          },
+          "fullDescription" : {
+            "text" : "Enabling allowRunningInsecureContent can allow remote code execution."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "frameworks/electron" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Enabling Electron allowRunningInsecureContent",
+            "description" : "Enabling allowRunningInsecureContent can allow remote code execution.",
+            "id" : "js/enabling-electron-insecure-content",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/redos",
+          "name" : "js/redos",
+          "shortDescription" : {
+            "text" : "Inefficient regular expression"
+          },
+          "fullDescription" : {
+            "text" : "A regular expression that requires exponential time to match certain inputs can be a performance bottleneck, and may be vulnerable to denial-of-service attacks."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-730", "external/cwe/cwe-400" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Inefficient regular expression",
+            "description" : "A regular expression that requires exponential time to match certain inputs\n              can be a performance bottleneck, and may be vulnerable to denial-of-service\n              attacks.",
+            "id" : "js/redos",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/polynomial-redos",
+          "name" : "js/polynomial-redos",
+          "shortDescription" : {
+            "text" : "Polynomial regular expression used on uncontrolled data"
+          },
+          "fullDescription" : {
+            "text" : "A regular expression that can require polynomial time to match user-provided values may be vulnerable to denial-of-service attacks."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-730", "external/cwe/cwe-400" ],
+            "kind" : "path-problem",
+            "precision" : "high",
+            "name" : "Polynomial regular expression used on uncontrolled data",
+            "description" : "A regular expression that can require polynomial time\n              to match user-provided values may be\n              vulnerable to denial-of-service attacks.",
+            "id" : "js/polynomial-redos",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/regex/unmatchable-dollar",
+          "name" : "js/regex/unmatchable-dollar",
+          "shortDescription" : {
+            "text" : "Unmatchable dollar in regular expression"
+          },
+          "fullDescription" : {
+            "text" : "If a dollar assertion '$' appears in a regular expression before another term that cannot match the empty string, then this assertion can never match, so the entire regular expression cannot match any string."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unmatchable dollar in regular expression",
+            "description" : "If a dollar assertion '$' appears in a regular expression before another term that\n              cannot match the empty string, then this assertion can never match, so the entire\n              regular expression cannot match any string.",
+            "id" : "js/regex/unmatchable-dollar",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/regex/unmatchable-caret",
+          "name" : "js/regex/unmatchable-caret",
+          "shortDescription" : {
+            "text" : "Unmatchable caret in regular expression"
+          },
+          "fullDescription" : {
+            "text" : "If a caret assertion '^' appears in a regular expression after another term that cannot match the empty string, then this assertion can never match, so the entire regular expression cannot match any string."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unmatchable caret in regular expression",
+            "description" : "If a caret assertion '^' appears in a regular expression after another term that\n              cannot match the empty string, then this assertion can never match, so the entire\n              regular expression cannot match any string.",
+            "id" : "js/regex/unmatchable-caret",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/regex/empty-character-class",
+          "name" : "js/regex/empty-character-class",
+          "shortDescription" : {
+            "text" : "Empty character class"
+          },
+          "fullDescription" : {
+            "text" : "Empty character classes are not normally useful and may indicate a bug."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Empty character class",
+            "description" : "Empty character classes are not normally useful and may indicate a bug.",
+            "id" : "js/regex/empty-character-class",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/regex/always-matches",
+          "name" : "js/regex/always-matches",
+          "shortDescription" : {
+            "text" : "Regular expression always matches"
+          },
+          "fullDescription" : {
+            "text" : "Regular expression tests that always find a match indicate dead code or a logic error"
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "regular-expressions" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Regular expression always matches",
+            "description" : "Regular expression tests that always find a match indicate dead code or a logic error",
+            "id" : "js/regex/always-matches",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/regex/duplicate-in-character-class",
+          "name" : "js/regex/duplicate-in-character-class",
+          "shortDescription" : {
+            "text" : "Duplicate character in character class"
+          },
+          "fullDescription" : {
+            "text" : "If a character class in a regular expression contains the same character twice, this may indicate a bug."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate character in character class",
+            "description" : "If a character class in a regular expression contains the same character twice, this may\n              indicate a bug.",
+            "id" : "js/regex/duplicate-in-character-class",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/identity-replacement",
+          "name" : "js/identity-replacement",
+          "shortDescription" : {
+            "text" : "Replacement of a substring with itself"
+          },
+          "fullDescription" : {
+            "text" : "Replacing a substring with itself has no effect and may indicate a mistake."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-116" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Replacement of a substring with itself",
+            "description" : "Replacing a substring with itself has no effect and may indicate a mistake.",
+            "id" : "js/identity-replacement",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/regex/unbound-back-reference",
+          "name" : "js/regex/unbound-back-reference",
+          "shortDescription" : {
+            "text" : "Unbound back reference"
+          },
+          "fullDescription" : {
+            "text" : "Regular expression escape sequences of the form '\\n', where 'n' is a positive number greater than the number of capture groups in the regular expression, are not allowed by the ECMAScript standard."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unbound back reference",
+            "description" : "Regular expression escape sequences of the form '\\n', where 'n' is a positive number\n              greater than the number of capture groups in the regular expression, are not allowed\n              by the ECMAScript standard.",
+            "id" : "js/regex/unbound-back-reference",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/regex/back-reference-to-negative-lookahead",
+          "name" : "js/regex/back-reference-to-negative-lookahead",
+          "shortDescription" : {
+            "text" : "Back reference into negative lookahead assertion"
+          },
+          "fullDescription" : {
+            "text" : "If a back reference refers to a capture group inside a preceding negative lookahead assertion, then the back reference always matches the empty string, which probably indicates a mistake."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Back reference into negative lookahead assertion",
+            "description" : "If a back reference refers to a capture group inside a preceding negative lookahead assertion,\n              then the back reference always matches the empty string, which probably indicates a mistake.",
+            "id" : "js/regex/back-reference-to-negative-lookahead",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/regex/back-reference-before-group",
+          "name" : "js/regex/back-reference-before-group",
+          "shortDescription" : {
+            "text" : "Back reference precedes capture group"
+          },
+          "fullDescription" : {
+            "text" : "If a back reference precedes the capture group it refers to, it matches the empty string, which is probably not what was expected."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "regular-expressions" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Back reference precedes capture group",
+            "description" : "If a back reference precedes the capture group it refers to, it matches the empty string,\n              which is probably not what was expected.",
+            "id" : "js/regex/back-reference-before-group",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/arguments-redefinition",
+          "name" : "js/arguments-redefinition",
+          "shortDescription" : {
+            "text" : "Arguments redefined"
+          },
+          "fullDescription" : {
+            "text" : "The special 'arguments' variable can be redefined, but this should be avoided since it makes code hard to read and maintain and may prevent compiler optimizations."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "maintainability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Arguments redefined",
+            "description" : "The special 'arguments' variable can be redefined, but this should be avoided\n              since it makes code hard to read and maintain and may prevent compiler\n              optimizations.",
+            "id" : "js/arguments-redefinition",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/missing-variable-declaration",
+          "name" : "js/missing-variable-declaration",
+          "shortDescription" : {
+            "text" : "Missing variable declaration"
+          },
+          "fullDescription" : {
+            "text" : "If a variable is not declared as a local variable, it becomes a global variable by default, which may be unintentional and could lead to unexpected behavior."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "maintainability" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing variable declaration",
+            "description" : "If a variable is not declared as a local variable, it becomes a global variable\n              by default, which may be unintentional and could lead to unexpected behavior.",
+            "id" : "js/missing-variable-declaration",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/useless-assignment-to-property",
+          "name" : "js/useless-assignment-to-property",
+          "shortDescription" : {
+            "text" : "Useless assignment to property"
+          },
+          "fullDescription" : {
+            "text" : "An assignment to a property whose value is always overwritten has no effect."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Useless assignment to property",
+            "description" : "An assignment to a property whose value is always overwritten has no effect.",
+            "id" : "js/useless-assignment-to-property",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/mixed-static-instance-this-access",
+          "name" : "js/mixed-static-instance-this-access",
+          "shortDescription" : {
+            "text" : "Wrong use of 'this' for static method"
+          },
+          "fullDescription" : {
+            "text" : "A reference to a static method from within an instance method needs to be qualified with the class name, not `this`."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "methods" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Wrong use of 'this' for static method",
+            "description" : "A reference to a static method from within an instance method needs to be qualified with the class name, not `this`.",
+            "id" : "js/mixed-static-instance-this-access",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/overwritten-property",
+          "name" : "js/overwritten-property",
+          "shortDescription" : {
+            "text" : "Overwritten property"
+          },
+          "fullDescription" : {
+            "text" : "If an object literal has two properties with the same name, the second property overwrites the first one, which makes the code hard to understand and error-prone."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Overwritten property",
+            "description" : "If an object literal has two properties with the same name,\n              the second property overwrites the first one,\n              which makes the code hard to understand and error-prone.",
+            "id" : "js/overwritten-property",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/suspicious-method-name-declaration",
+          "name" : "js/suspicious-method-name-declaration",
+          "shortDescription" : {
+            "text" : "Suspicious method name declaration"
+          },
+          "fullDescription" : {
+            "text" : "A method declaration with a name that is a special keyword in another context is suspicious."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "typescript", "methods" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Suspicious method name declaration",
+            "description" : "A method declaration with a name that is a special keyword in another\n              context is suspicious.",
+            "id" : "js/suspicious-method-name-declaration",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/variable-initialization-conflict",
+          "name" : "js/variable-initialization-conflict",
+          "shortDescription" : {
+            "text" : "Conflicting variable initialization"
+          },
+          "fullDescription" : {
+            "text" : "If a variable is declared and initialized twice inside the same variable declaration statement, the second initialization immediately overwrites the first one."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Conflicting variable initialization",
+            "description" : "If a variable is declared and initialized twice inside the same variable declaration\n              statement, the second initialization immediately overwrites the first one.",
+            "id" : "js/variable-initialization-conflict",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/unused-local-variable",
+          "name" : "js/unused-local-variable",
+          "shortDescription" : {
+            "text" : "Unused variable, import, function or class"
+          },
+          "fullDescription" : {
+            "text" : "Unused variables, imports, functions or classes may be a symptom of a bug and should be examined carefully."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "maintainability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unused variable, import, function or class",
+            "description" : "Unused variables, imports, functions or classes may be a symptom of a bug\n              and should be examined carefully.",
+            "id" : "js/unused-local-variable",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/function-declaration-conflict",
+          "name" : "js/function-declaration-conflict",
+          "shortDescription" : {
+            "text" : "Conflicting function declarations"
+          },
+          "fullDescription" : {
+            "text" : "If two functions with the same name are declared in the same scope, one of the declarations overrides the other without warning. This makes the code hard to read and maintain, and may even lead to platform-dependent behavior."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Conflicting function declarations",
+            "description" : "If two functions with the same name are declared in the same scope, one of the declarations\n              overrides the other without warning. This makes the code hard to read and maintain, and\n              may even lead to platform-dependent behavior.",
+            "id" : "js/function-declaration-conflict",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/use-before-declaration",
+          "name" : "js/use-before-declaration",
+          "shortDescription" : {
+            "text" : "Variable not declared before use"
+          },
+          "fullDescription" : {
+            "text" : "Variables should be declared before their first use."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "readability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Variable not declared before use",
+            "description" : "Variables should be declared before their first use.",
+            "id" : "js/use-before-declaration",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unreachable-method-overloads",
+          "name" : "js/unreachable-method-overloads",
+          "shortDescription" : {
+            "text" : "Unreachable method overloads"
+          },
+          "fullDescription" : {
+            "text" : "Having multiple overloads with the same parameter types in TypeScript makes all overloads except the first one unreachable, as the compiler always resolves calls to the textually first matching overload."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "typescript" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unreachable method overloads",
+            "description" : "Having multiple overloads with the same parameter types in TypeScript\n              makes all overloads except the first one unreachable, as the compiler\n              always resolves calls to the textually first matching overload.",
+            "id" : "js/unreachable-method-overloads",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/missing-this-qualifier",
+          "name" : "js/missing-this-qualifier",
+          "shortDescription" : {
+            "text" : "Missing 'this' qualifier"
+          },
+          "fullDescription" : {
+            "text" : "Referencing an undeclared global variable in a class that has a member of the same name is confusing and may indicate a bug."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "methods" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing 'this' qualifier",
+            "description" : "Referencing an undeclared global variable in a class that has a member of the same name is confusing and may indicate a bug.",
+            "id" : "js/missing-this-qualifier",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/duplicate-variable-declaration",
+          "name" : "js/duplicate-variable-declaration",
+          "shortDescription" : {
+            "text" : "Duplicate variable declaration"
+          },
+          "fullDescription" : {
+            "text" : "A variable declaration statement that declares the same variable twice is confusing and hard to maintain."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "maintainability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate variable declaration",
+            "description" : "A variable declaration statement that declares the same variable twice is\n              confusing and hard to maintain.",
+            "id" : "js/duplicate-variable-declaration",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/assignment-to-constant",
+          "name" : "js/assignment-to-constant",
+          "shortDescription" : {
+            "text" : "Assignment to constant"
+          },
+          "fullDescription" : {
+            "text" : "Assigning to a variable that is declared 'const' has either no effect or leads to a runtime error, depending on the platform."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Assignment to constant",
+            "description" : "Assigning to a variable that is declared 'const' has either no effect or leads to a\n              runtime error, depending on the platform.",
+            "id" : "js/assignment-to-constant",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/nested-function-reference-in-default-parameter",
+          "name" : "js/nested-function-reference-in-default-parameter",
+          "shortDescription" : {
+            "text" : "Default parameter references nested function"
+          },
+          "fullDescription" : {
+            "text" : "If a default parameter value references a function that is nested inside the function to which the parameter belongs, a runtime error will occur, since the function is not yet defined at the point where it is referenced."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Default parameter references nested function",
+            "description" : "If a default parameter value references a function that is nested inside the\n              function to which the parameter belongs, a runtime error will occur, since\n              the function is not yet defined at the point where it is referenced.",
+            "id" : "js/nested-function-reference-in-default-parameter",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/useless-assignment-to-local",
+          "name" : "js/useless-assignment-to-local",
+          "shortDescription" : {
+            "text" : "Useless assignment to local variable"
+          },
+          "fullDescription" : {
+            "text" : "An assignment to a local variable that is not used later on, or whose value is always overwritten, has no effect."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Useless assignment to local variable",
+            "description" : "An assignment to a local variable that is not used later on, or whose value is always\n              overwritten, has no effect.",
+            "id" : "js/useless-assignment-to-local",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/duplicate-parameter-name",
+          "name" : "js/duplicate-parameter-name",
+          "shortDescription" : {
+            "text" : "Duplicate parameter names"
+          },
+          "fullDescription" : {
+            "text" : "If a function has two parameters with the same name, the second parameter shadows the first one, which makes the code hard to understand and error-prone."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate parameter names",
+            "description" : "If a function has two parameters with the same name, the second parameter\n              shadows the first one, which makes the code hard to understand and error-prone.",
+            "id" : "js/duplicate-parameter-name",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/ineffective-parameter-type",
+          "name" : "js/ineffective-parameter-type",
+          "shortDescription" : {
+            "text" : "Ineffective parameter type"
+          },
+          "fullDescription" : {
+            "text" : "Omitting the name of a parameter causes its type annotation to be parsed as the name."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "typescript" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Ineffective parameter type",
+            "description" : "Omitting the name of a parameter causes its type annotation to be parsed as the name.",
+            "id" : "js/ineffective-parameter-type",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/variable-use-in-temporal-dead-zone",
+          "name" : "js/variable-use-in-temporal-dead-zone",
+          "shortDescription" : {
+            "text" : "Access to let-bound variable in temporal dead zone"
+          },
+          "fullDescription" : {
+            "text" : "Accessing a let-bound variable before its declaration will lead to a runtime error on ECMAScript 2015-compatible platforms."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "portability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Access to let-bound variable in temporal dead zone",
+            "description" : "Accessing a let-bound variable before its declaration will lead to a runtime\n              error on ECMAScript 2015-compatible platforms.",
+            "id" : "js/variable-use-in-temporal-dead-zone",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/node/assignment-to-exports-variable",
+          "name" : "js/node/assignment-to-exports-variable",
+          "shortDescription" : {
+            "text" : "Assignment to exports variable"
+          },
+          "fullDescription" : {
+            "text" : "Assigning to the special 'exports' variable only overwrites its value and does not export anything. Such an assignment is hence most likely unintentional."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "frameworks/node.js", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Assignment to exports variable",
+            "description" : "Assigning to the special 'exports' variable only overwrites its value and does not export\n              anything. Such an assignment is hence most likely unintentional.",
+            "id" : "js/node/assignment-to-exports-variable",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/node/missing-exports-qualifier",
+          "name" : "js/node/missing-exports-qualifier",
+          "shortDescription" : {
+            "text" : "Missing exports qualifier"
+          },
+          "fullDescription" : {
+            "text" : "Referencing an undeclared global variable in a module that exports a definition of the same name is confusing and may indicate a bug."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "frameworks/node.js" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing exports qualifier",
+            "description" : "Referencing an undeclared global variable in a module that exports\n              a definition of the same name is confusing and may indicate a bug.",
+            "id" : "js/node/missing-exports-qualifier",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/unneeded-defensive-code",
+          "name" : "js/unneeded-defensive-code",
+          "shortDescription" : {
+            "text" : "Unneeded defensive code"
+          },
+          "fullDescription" : {
+            "text" : "Defensive code that guards against a situation that never happens is not needed."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "external/cwe/cwe-570", "external/cwe/cwe-571" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unneeded defensive code",
+            "description" : "Defensive code that guards against a situation that never happens is not needed.",
+            "id" : "js/unneeded-defensive-code",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/useless-expression",
+          "name" : "js/useless-expression",
+          "shortDescription" : {
+            "text" : "Expression has no effect"
+          },
+          "fullDescription" : {
+            "text" : "An expression that has no effect and is used in a void context is most likely redundant and may indicate a bug."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "external/cwe/cwe-480", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Expression has no effect",
+            "description" : "An expression that has no effect and is used in a void context is most\n              likely redundant and may indicate a bug.",
+            "id" : "js/useless-expression",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/misspelled-variable-name",
+          "name" : "js/misspelled-variable-name",
+          "shortDescription" : {
+            "text" : "Misspelled variable name"
+          },
+          "fullDescription" : {
+            "text" : "Misspelling a variable name implicitly introduces a global variable, which may not lead to a runtime error, but is likely to give wrong results."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "readability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Misspelled variable name",
+            "description" : "Misspelling a variable name implicitly introduces a global\n              variable, which may not lead to a runtime error, but is\n              likely to give wrong results.",
+            "id" : "js/misspelled-variable-name",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unbound-event-handler-receiver",
+          "name" : "js/unbound-event-handler-receiver",
+          "shortDescription" : {
+            "text" : "Unbound event handler receiver"
+          },
+          "fullDescription" : {
+            "text" : "Invoking an event handler method as a function can cause a runtime error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unbound event handler receiver",
+            "description" : "Invoking an event handler method as a function can cause a runtime error.",
+            "id" : "js/unbound-event-handler-receiver",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/whitespace-contradicts-precedence",
+          "name" : "js/whitespace-contradicts-precedence",
+          "shortDescription" : {
+            "text" : "Whitespace contradicts operator precedence"
+          },
+          "fullDescription" : {
+            "text" : "Nested expressions where the formatting contradicts the grouping enforced by operator precedence are difficult to read and may even indicate a bug."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "statistical", "non-attributable", "external/cwe/cwe-783" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Whitespace contradicts operator precedence",
+            "description" : "Nested expressions where the formatting contradicts the grouping enforced by operator precedence\n              are difficult to read and may even indicate a bug.",
+            "id" : "js/whitespace-contradicts-precedence",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/redundant-operation",
+          "name" : "js/redundant-operation",
+          "shortDescription" : {
+            "text" : "Identical operands"
+          },
+          "fullDescription" : {
+            "text" : "Passing identical, or seemingly identical, operands to an operator such as subtraction or conjunction may indicate a typo; even if it is intentional, it makes the code hard to read."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-480", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Identical operands",
+            "description" : "Passing identical, or seemingly identical, operands to an\n              operator such as subtraction or conjunction may indicate a typo;\n              even if it is intentional, it makes the code hard to read.",
+            "id" : "js/redundant-operation",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/missing-dot-length-in-comparison",
+          "name" : "js/missing-dot-length-in-comparison",
+          "shortDescription" : {
+            "text" : "Missing '.length' in comparison"
+          },
+          "fullDescription" : {
+            "text" : "Two variables are being compared using a relational operator, but one is also used to index into the other, suggesting a \".length\" is missing from the comparison."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing '.length' in comparison",
+            "description" : "Two variables are being compared using a relational operator, but one is also used\n             to index into the other, suggesting a \".length\" is missing from the comparison.",
+            "id" : "js/missing-dot-length-in-comparison",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/call-to-non-callable",
+          "name" : "js/call-to-non-callable",
+          "shortDescription" : {
+            "text" : "Invocation of non-function"
+          },
+          "fullDescription" : {
+            "text" : "Trying to invoke a value that is not a function will result in a runtime exception."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "external/cwe/cwe-476" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Invocation of non-function",
+            "description" : "Trying to invoke a value that is not a function will result\n              in a runtime exception.",
+            "id" : "js/call-to-non-callable",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/missing-await",
+          "name" : "js/missing-await",
+          "shortDescription" : {
+            "text" : "Missing await"
+          },
+          "fullDescription" : {
+            "text" : "Using a promise without awaiting its result can lead to unexpected behavior."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Missing await",
+            "description" : "Using a promise without awaiting its result can lead to unexpected behavior.",
+            "id" : "js/missing-await",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/duplicate-property",
+          "name" : "js/duplicate-property",
+          "shortDescription" : {
+            "text" : "Duplicate property"
+          },
+          "fullDescription" : {
+            "text" : "Listing the same property twice in one object literal is redundant and may indicate a copy-paste mistake."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate property",
+            "description" : "Listing the same property twice in one object literal is\n              redundant and may indicate a copy-paste mistake.",
+            "id" : "js/duplicate-property",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/string-instead-of-regex",
+          "name" : "js/string-instead-of-regex",
+          "shortDescription" : {
+            "text" : "String instead of regular expression"
+          },
+          "fullDescription" : {
+            "text" : "Calling 'String.prototype.replace' or 'String.prototype.split' with a string argument that looks like a regular expression is probably a mistake because the called function will not convert the string into a regular expression."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "String instead of regular expression",
+            "description" : "Calling 'String.prototype.replace' or 'String.prototype.split' with a string argument that looks like a regular expression is probably a mistake because the called function will not convert the string into a regular expression.",
+            "id" : "js/string-instead-of-regex",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/property-access-on-non-object",
+          "name" : "js/property-access-on-non-object",
+          "shortDescription" : {
+            "text" : "Property access on null or undefined"
+          },
+          "fullDescription" : {
+            "text" : "Trying to access a property of \"null\" or \"undefined\" will result in a runtime exception."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "external/cwe/cwe-476" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Property access on null or undefined",
+            "description" : "Trying to access a property of \"null\" or \"undefined\" will result\n              in a runtime exception.",
+            "id" : "js/property-access-on-non-object",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/shift-out-of-range",
+          "name" : "js/shift-out-of-range",
+          "shortDescription" : {
+            "text" : "Shift out of range"
+          },
+          "fullDescription" : {
+            "text" : "The integer shift operators '<<', '>>' and '>>>' only take the five least significant bits of their right operand into account. Thus, it is not possible to shift an integer by more than 31 bits."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-197" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Shift out of range",
+            "description" : "The integer shift operators '<<', '>>' and '>>>' only take the five least significant bits of their\n              right operand into account. Thus, it is not possible to shift an integer by more than 31 bits.",
+            "id" : "js/shift-out-of-range",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/missing-space-in-concatenation",
+          "name" : "js/missing-space-in-concatenation",
+          "shortDescription" : {
+            "text" : "Missing space in string concatenation"
+          },
+          "fullDescription" : {
+            "text" : "Joining constant strings into a longer string where two words are concatenated without a separating space usually indicates a text error."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "readability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Missing space in string concatenation",
+            "description" : "Joining constant strings into a longer string where\n              two words are concatenated without a separating space\n              usually indicates a text error.",
+            "id" : "js/missing-space-in-concatenation",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/duplicate-condition",
+          "name" : "js/duplicate-condition",
+          "shortDescription" : {
+            "text" : "Duplicate 'if' condition"
+          },
+          "fullDescription" : {
+            "text" : "If two conditions in an 'if'-'else if' chain are identical, the second condition will never hold."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate 'if' condition",
+            "description" : "If two conditions in an 'if'-'else if' chain are identical, the\n              second condition will never hold.",
+            "id" : "js/duplicate-condition",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/comparison-between-incompatible-types",
+          "name" : "js/comparison-between-incompatible-types",
+          "shortDescription" : {
+            "text" : "Comparison between inconvertible types"
+          },
+          "fullDescription" : {
+            "text" : "An equality comparison between two values that cannot be meaningfully converted to the same type will always yield 'false', and an inequality comparison will always yield 'true'."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-570", "external/cwe/cwe-571" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Comparison between inconvertible types",
+            "description" : "An equality comparison between two values that cannot be meaningfully converted to\n              the same type will always yield 'false', and an inequality comparison will always\n              yield 'true'.",
+            "id" : "js/comparison-between-incompatible-types",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unclear-operator-precedence",
+          "name" : "js/unclear-operator-precedence",
+          "shortDescription" : {
+            "text" : "Unclear precedence of nested operators"
+          },
+          "fullDescription" : {
+            "text" : "Nested expressions involving binary bitwise operators and comparisons are easy to misunderstand without additional disambiguating parentheses or whitespace."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "statistical", "non-attributable", "external/cwe/cwe-783" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unclear precedence of nested operators",
+            "description" : "Nested expressions involving binary bitwise operators and comparisons are easy\n              to misunderstand without additional disambiguating parentheses or whitespace.",
+            "id" : "js/unclear-operator-precedence",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/redundant-assignment",
+          "name" : "js/redundant-assignment",
+          "shortDescription" : {
+            "text" : "Self assignment"
+          },
+          "fullDescription" : {
+            "text" : "Assigning a variable to itself has no effect."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-480", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Self assignment",
+            "description" : "Assigning a variable to itself has no effect.",
+            "id" : "js/redundant-assignment",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/duplicate-switch-case",
+          "name" : "js/duplicate-switch-case",
+          "shortDescription" : {
+            "text" : "Duplicate switch case"
+          },
+          "fullDescription" : {
+            "text" : "If two cases in a switch statement have the same label, the second case will never be executed."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Duplicate switch case",
+            "description" : "If two cases in a switch statement have the same label, the second case\n              will never be executed.",
+            "id" : "js/duplicate-switch-case",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unknown-directive",
+          "name" : "js/unknown-directive",
+          "shortDescription" : {
+            "text" : "Unknown directive"
+          },
+          "fullDescription" : {
+            "text" : "An unknown directive has no effect and may indicate a misspelling."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unknown directive",
+            "description" : "An unknown directive has no effect and may indicate a misspelling.",
+            "id" : "js/unknown-directive",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/comparison-with-nan",
+          "name" : "js/comparison-with-nan",
+          "shortDescription" : {
+            "text" : "Comparison with NaN"
+          },
+          "fullDescription" : {
+            "text" : "Arithmetic comparisons with NaN are useless: nothing is considered to be equal to NaN, not even NaN itself, and similarly nothing is considered greater or less than NaN."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-570", "external/cwe/cwe-571" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Comparison with NaN",
+            "description" : "Arithmetic comparisons with NaN are useless: nothing is considered to be equal to NaN, not even NaN itself,\n              and similarly nothing is considered greater or less than NaN.",
+            "id" : "js/comparison-with-nan",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/implicit-operand-conversion",
+          "name" : "js/implicit-operand-conversion",
+          "shortDescription" : {
+            "text" : "Implicit operand conversion"
+          },
+          "fullDescription" : {
+            "text" : "Relying on implicit conversion of operands is error-prone and makes code hard to read."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "readability", "external/cwe/cwe-704" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Implicit operand conversion",
+            "description" : "Relying on implicit conversion of operands is error-prone and makes code\n              hard to read.",
+            "id" : "js/implicit-operand-conversion",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/trivial-conditional",
+          "name" : "js/trivial-conditional",
+          "shortDescription" : {
+            "text" : "Useless conditional"
+          },
+          "fullDescription" : {
+            "text" : "If a conditional expression always evaluates to true or always evaluates to false, this suggests incomplete code or a logic error."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "external/cwe/cwe-570", "external/cwe/cwe-571" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Useless conditional",
+            "description" : "If a conditional expression always evaluates to true or always\n              evaluates to false, this suggests incomplete code or a logic\n              error.",
+            "id" : "js/trivial-conditional",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/misleading-indentation-of-dangling-else",
+          "name" : "js/misleading-indentation-of-dangling-else",
+          "shortDescription" : {
+            "text" : "Misleading indentation of dangling 'else'"
+          },
+          "fullDescription" : {
+            "text" : "The 'else' clause of an 'if' statement should be aligned with the 'if' it belongs to."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "readability", "statistical", "non-attributable", "external/cwe/cwe-483" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Misleading indentation of dangling 'else'",
+            "description" : "The 'else' clause of an 'if' statement should be aligned with the 'if' it belongs to.",
+            "id" : "js/misleading-indentation-of-dangling-else",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/label-in-switch",
+          "name" : "js/label-in-switch",
+          "shortDescription" : {
+            "text" : "Non-case label in switch statement"
+          },
+          "fullDescription" : {
+            "text" : "A non-case label appearing in a switch statement that is textually aligned with a case label is confusing to read, or may even indicate a bug."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "readability" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Non-case label in switch statement",
+            "description" : "A non-case label appearing in a switch statement that is textually aligned with a case\n              label is confusing to read, or may even indicate a bug.",
+            "id" : "js/label-in-switch",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/useless-comparison-test",
+          "name" : "js/useless-comparison-test",
+          "shortDescription" : {
+            "text" : "Useless comparison test"
+          },
+          "fullDescription" : {
+            "text" : "A comparison that always evaluates to true or always evaluates to false may indicate faulty logic and dead code."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Useless comparison test",
+            "description" : "A comparison that always evaluates to true or always evaluates to false may\n              indicate faulty logic and dead code.",
+            "id" : "js/useless-comparison-test",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unreachable-statement",
+          "name" : "js/unreachable-statement",
+          "shortDescription" : {
+            "text" : "Unreachable statement"
+          },
+          "fullDescription" : {
+            "text" : "Unreachable statements are often indicative of missing code or latent bugs and should be avoided."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "external/cwe/cwe-561" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Unreachable statement",
+            "description" : "Unreachable statements are often indicative of missing code or latent bugs and should be avoided.",
+            "id" : "js/unreachable-statement",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/ignore-array-result",
+          "name" : "js/ignore-array-result",
+          "shortDescription" : {
+            "text" : "Ignoring result from pure array method"
+          },
+          "fullDescription" : {
+            "text" : "Ignoring the result of an array method that does not modify its receiver is generally an error."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Ignoring result from pure array method",
+            "description" : "Ignoring the result of an array method that does not modify its receiver is generally an error.",
+            "id" : "js/ignore-array-result",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/use-of-returnless-function",
+          "name" : "js/use-of-returnless-function",
+          "shortDescription" : {
+            "text" : "Use of returnless function"
+          },
+          "fullDescription" : {
+            "text" : "Using the return value of a function that does not return an expression is indicative of a mistake."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Use of returnless function",
+            "description" : "Using the return value of a function that does not return an expression is indicative of a mistake.",
+            "id" : "js/use-of-returnless-function",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/useless-assignment-in-return",
+          "name" : "js/useless-assignment-in-return",
+          "shortDescription" : {
+            "text" : "Return statement assigns local variable"
+          },
+          "fullDescription" : {
+            "text" : "An assignment to a local variable in a return statement is useless, since the variable will immediately go out of scope and its value is lost."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "readability", "external/cwe/cwe-563" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Return statement assigns local variable",
+            "description" : "An assignment to a local variable in a return statement is useless, since the variable will\n              immediately go out of scope and its value is lost.",
+            "id" : "js/useless-assignment-in-return",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/inconsistent-loop-direction",
+          "name" : "js/inconsistent-loop-direction",
+          "shortDescription" : {
+            "text" : "Inconsistent direction of for loop"
+          },
+          "fullDescription" : {
+            "text" : "A 'for' loop that increments its loop variable but checks it against a lower bound, or decrements its loop variable but checks it against an upper bound, will either stop iterating immediately or keep iterating indefinitely, and is usually indicative of a typo."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "external/cwe/cwe-835" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Inconsistent direction of for loop",
+            "description" : "A 'for' loop that increments its loop variable but checks it\n              against a lower bound, or decrements its loop variable but\n              checks it against an upper bound, will either stop iterating\n              immediately or keep iterating indefinitely, and is usually\n              indicative of a typo.",
+            "id" : "js/inconsistent-loop-direction",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/misleading-indentation-after-control-statement",
+          "name" : "js/misleading-indentation-after-control-statement",
+          "shortDescription" : {
+            "text" : "Misleading indentation after control statement"
+          },
+          "fullDescription" : {
+            "text" : "The body of a control statement should have appropriate indentation to clarify which statements it controls and which ones it does not control."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness", "statistical", "non-attributable", "external/cwe/cwe-483" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Misleading indentation after control statement",
+            "description" : "The body of a control statement should have appropriate indentation to clarify which\n              statements it controls and which ones it does not control.",
+            "id" : "js/misleading-indentation-after-control-statement",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/loop-iteration-skipped-due-to-shifting",
+          "name" : "js/loop-iteration-skipped-due-to-shifting",
+          "shortDescription" : {
+            "text" : "Loop iteration skipped due to shifting"
+          },
+          "fullDescription" : {
+            "text" : "Removing elements from an array while iterating over it can cause the loop to skip over some elements, unless the loop index is decremented accordingly."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Loop iteration skipped due to shifting",
+            "description" : "Removing elements from an array while iterating over it can cause the loop to skip over some elements,\n              unless the loop index is decremented accordingly.",
+            "id" : "js/loop-iteration-skipped-due-to-shifting",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/unused-loop-variable",
+          "name" : "js/unused-loop-variable",
+          "shortDescription" : {
+            "text" : "Unused loop iteration variable"
+          },
+          "fullDescription" : {
+            "text" : "A loop iteration variable is unused, which suggests an error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unused loop iteration variable",
+            "description" : "A loop iteration variable is unused, which suggests an error.",
+            "id" : "js/unused-loop-variable",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/superfluous-trailing-arguments",
+          "name" : "js/superfluous-trailing-arguments",
+          "shortDescription" : {
+            "text" : "Superfluous trailing arguments"
+          },
+          "fullDescription" : {
+            "text" : "A function is invoked with extra trailing arguments that are ignored."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "language-features", "external/cwe/cwe-685" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Superfluous trailing arguments",
+            "description" : "A function is invoked with extra trailing arguments that are ignored.",
+            "id" : "js/superfluous-trailing-arguments",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/automatic-semicolon-insertion",
+          "name" : "js/automatic-semicolon-insertion",
+          "shortDescription" : {
+            "text" : "Semicolon insertion"
+          },
+          "fullDescription" : {
+            "text" : "Code that uses automatic semicolon insertion inconsistently is hard to read and maintain."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "language-features", "statistical", "non-attributable" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Semicolon insertion",
+            "description" : "Code that uses automatic semicolon insertion inconsistently is hard to read and maintain.",
+            "id" : "js/automatic-semicolon-insertion",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/unused-index-variable",
+          "name" : "js/unused-index-variable",
+          "shortDescription" : {
+            "text" : "Unused index variable"
+          },
+          "fullDescription" : {
+            "text" : "Iterating over an array but not using the index variable to access array elements may indicate a typo or logic error."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Unused index variable",
+            "description" : "Iterating over an array but not using the index variable to access array elements\n              may indicate a typo or logic error.",
+            "id" : "js/unused-index-variable",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/template-syntax-in-string-literal",
+          "name" : "js/template-syntax-in-string-literal",
+          "shortDescription" : {
+            "text" : "Template syntax in string literal"
+          },
+          "fullDescription" : {
+            "text" : "A string literal appears to use template syntax but is not quoted with backticks."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "correctness" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Template syntax in string literal",
+            "description" : "A string literal appears to use template syntax but is not quoted with backticks.",
+            "id" : "js/template-syntax-in-string-literal",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/for-in-comprehension",
+          "name" : "js/for-in-comprehension",
+          "shortDescription" : {
+            "text" : "Use of for-in comprehension blocks"
+          },
+          "fullDescription" : {
+            "text" : "'for'-'in' comprehension blocks are a Mozilla-specific language extension that is no longer supported."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "portability", "maintainability", "language-features", "external/cwe/cwe-758" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Use of for-in comprehension blocks",
+            "description" : "'for'-'in' comprehension blocks are a Mozilla-specific language extension\n              that is no longer supported.",
+            "id" : "js/for-in-comprehension",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/non-standard-language-feature",
+          "name" : "js/non-standard-language-feature",
+          "shortDescription" : {
+            "text" : "Use of platform-specific language features"
+          },
+          "fullDescription" : {
+            "text" : "Non-standard language features such as expression closures or let expressions make it harder to reuse code."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "portability", "maintainability", "language-features", "external/cwe/cwe-758" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Use of platform-specific language features",
+            "description" : "Non-standard language features such as expression closures or let expressions\n              make it harder to reuse code.",
+            "id" : "js/non-standard-language-feature",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/index-out-of-bounds",
+          "name" : "js/index-out-of-bounds",
+          "shortDescription" : {
+            "text" : "Off-by-one comparison against length"
+          },
+          "fullDescription" : {
+            "text" : "An array index is compared to be less than or equal to the 'length' property, and then used in an indexing operation that could be out of bounds."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "logic", "external/cwe/cwe-193" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Off-by-one comparison against length",
+            "description" : "An array index is compared to be less than or equal to the 'length' property,\n              and then used in an indexing operation that could be out of bounds.",
+            "id" : "js/index-out-of-bounds",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/strict-mode-call-stack-introspection",
+          "name" : "js/strict-mode-call-stack-introspection",
+          "shortDescription" : {
+            "text" : "Use of call stack introspection in strict mode"
+          },
+          "fullDescription" : {
+            "text" : "Accessing properties 'arguments.caller', 'arguments.callee', 'Function.prototype.caller' or 'Function.prototype.arguments' in strict mode will cause a runtime error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "language-features" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Use of call stack introspection in strict mode",
+            "description" : "Accessing properties 'arguments.caller', 'arguments.callee',\n              'Function.prototype.caller' or 'Function.prototype.arguments'\n              in strict mode will cause a runtime error.",
+            "id" : "js/strict-mode-call-stack-introspection",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/invalid-prototype-value",
+          "name" : "js/invalid-prototype-value",
+          "shortDescription" : {
+            "text" : "Invalid prototype value"
+          },
+          "fullDescription" : {
+            "text" : "An attempt to use a value that is not an object or 'null' as a prototype will either be ignored or result in a runtime error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "language-features", "external/cwe/cwe-704" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Invalid prototype value",
+            "description" : "An attempt to use a value that is not an object or 'null' as a\n              prototype will either be ignored or result in a runtime error.",
+            "id" : "js/invalid-prototype-value",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/useless-type-test",
+          "name" : "js/useless-type-test",
+          "shortDescription" : {
+            "text" : "Useless type test"
+          },
+          "fullDescription" : {
+            "text" : "Comparing the result of a typeof test against a string other than 'undefined', 'boolean', 'number', 'string', 'object', 'function' or 'symbol' is useless, since this comparison can never succeed."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "language-features", "external/cwe/cwe-570", "external/cwe/cwe-571" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Useless type test",
+            "description" : "Comparing the result of a typeof test against a string other than 'undefined',\n              'boolean', 'number', 'string', 'object', 'function' or 'symbol' is useless, since\n              this comparison can never succeed.",
+            "id" : "js/useless-type-test",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/property-assignment-on-primitive",
+          "name" : "js/property-assignment-on-primitive",
+          "shortDescription" : {
+            "text" : "Assignment to property of primitive value"
+          },
+          "fullDescription" : {
+            "text" : "Assigning to a property of a primitive value has no effect and may trigger a runtime error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "language-features", "external/cwe/cwe-704" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Assignment to property of primitive value",
+            "description" : "Assigning to a property of a primitive value has no effect\n              and may trigger a runtime error.",
+            "id" : "js/property-assignment-on-primitive",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/with-statement",
+          "name" : "js/with-statement",
+          "shortDescription" : {
+            "text" : "With statement"
+          },
+          "fullDescription" : {
+            "text" : "The 'with' statement has subtle semantics and should not be used."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "language-features" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "With statement",
+            "description" : "The 'with' statement has subtle semantics and should not be used.",
+            "id" : "js/with-statement",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/conditional-comment",
+          "name" : "js/conditional-comment",
+          "shortDescription" : {
+            "text" : "Conditional comments"
+          },
+          "fullDescription" : {
+            "text" : "Conditional comments are an IE-specific feature and not portable."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "portability", "maintainability", "language-features", "external/cwe/cwe-758" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Conditional comments",
+            "description" : "Conditional comments are an IE-specific feature and not portable.",
+            "id" : "js/conditional-comment",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/setter-return",
+          "name" : "js/setter-return",
+          "shortDescription" : {
+            "text" : "Useless return in setter"
+          },
+          "fullDescription" : {
+            "text" : "Returning a value from a setter function is useless, since it will always be ignored."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "maintainability", "language-features" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Useless return in setter",
+            "description" : "Returning a value from a setter function is useless, since it will\n              always be ignored.",
+            "id" : "js/setter-return",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/non-linear-pattern",
+          "name" : "js/non-linear-pattern",
+          "shortDescription" : {
+            "text" : "Non-linear pattern"
+          },
+          "fullDescription" : {
+            "text" : "If the same pattern variable appears twice in an array or object pattern, the second binding will silently overwrite the first binding, which is probably unintentional."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "language-features" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Non-linear pattern",
+            "description" : "If the same pattern variable appears twice in an array or object pattern,\n              the second binding will silently overwrite the first binding, which is probably\n              unintentional.",
+            "id" : "js/non-linear-pattern",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/syntax-error",
+          "name" : "js/syntax-error",
+          "shortDescription" : {
+            "text" : "Syntax error"
+          },
+          "fullDescription" : {
+            "text" : "A piece of code could not be parsed due to syntax errors."
+          },
+          "defaultConfiguration" : {
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "language-features" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Syntax error",
+            "description" : "A piece of code could not be parsed due to syntax errors.",
+            "id" : "js/syntax-error",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "js/illegal-invocation",
+          "name" : "js/illegal-invocation",
+          "shortDescription" : {
+            "text" : "Illegal invocation"
+          },
+          "fullDescription" : {
+            "text" : "Attempting to invoke a method or an arrow function using 'new', or invoking a constructor as a function, will cause a runtime error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "language-features" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Illegal invocation",
+            "description" : "Attempting to invoke a method or an arrow function using 'new',\n              or invoking a constructor as a function, will cause a runtime\n              error.",
+            "id" : "js/illegal-invocation",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/incomplete-object-initialization",
+          "name" : "js/incomplete-object-initialization",
+          "shortDescription" : {
+            "text" : "Use of incompletely initialized object"
+          },
+          "fullDescription" : {
+            "text" : "Accessing 'this' or a property of 'super' in the constructor of a subclass before calling the super constructor will cause a runtime error."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "language-features" ],
+            "kind" : "problem",
+            "precision" : "high",
+            "name" : "Use of incompletely initialized object",
+            "description" : "Accessing 'this' or a property of 'super' in the constructor of a\n              subclass before calling the super constructor will cause a runtime error.",
+            "id" : "js/incomplete-object-initialization",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/deletion-of-non-property",
+          "name" : "js/deletion-of-non-property",
+          "shortDescription" : {
+            "text" : "Deleting non-property"
+          },
+          "fullDescription" : {
+            "text" : "The operand of the 'delete' operator should always be a property accessor."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "maintainability", "language-features", "external/cwe/cwe-480" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Deleting non-property",
+            "description" : "The operand of the 'delete' operator should always be a property accessor.",
+            "id" : "js/deletion-of-non-property",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "js/yield-outside-generator",
+          "name" : "js/yield-outside-generator",
+          "shortDescription" : {
+            "text" : "Yield in non-generator function"
+          },
+          "fullDescription" : {
+            "text" : "'yield' should only be used in generator functions."
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "language-features", "external/cwe/cwe-758" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Yield in non-generator function",
+            "description" : "'yield' should only be used in generator functions.",
+            "id" : "js/yield-outside-generator",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "js/inconsistent-use-of-new",
+          "name" : "js/inconsistent-use-of-new",
+          "shortDescription" : {
+            "text" : "Inconsistent use of 'new'"
+          },
+          "fullDescription" : {
+            "text" : "If a function is intended to be a constructor, it should always be invoked with 'new'. Otherwise, it should always be invoked as a normal function, that is, without 'new'."
+          },
+          "defaultConfiguration" : { },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "language-features" ],
+            "kind" : "problem",
+            "precision" : "very-high",
+            "name" : "Inconsistent use of 'new'",
+            "description" : "If a function is intended to be a constructor, it should always\n              be invoked with 'new'. Otherwise, it should always be invoked\n              as a normal function, that is, without 'new'.",
+            "id" : "js/inconsistent-use-of-new",
+            "problem.severity" : "warning"
+          }
+        } ]
+      }
+    },
+    "artifacts" : [ {
+      "location" : {
+        "uri" : "common/common.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 0
+      }
+    } ],
+    "results" : [ {
+      "ruleId" : "js/useless-assignment-to-local",
+      "ruleIndex" : 91,
+      "message" : {
+        "text" : "The initial value of m is unused, since it is always overwritten."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "common/common.js",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 29,
+            "startColumn" : 9,
+            "endColumn" : 40
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "9dd571977ef66478:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    } ],
+    "newlineSequences" : [ "\r\n", "\n", " ", " " ],
+    "columnKind" : "utf16CodeUnits",
+    "properties" : {
+      "semmle.formatSpecifier" : "sarifv2.1.0"
+    }
+  } ]
+}
